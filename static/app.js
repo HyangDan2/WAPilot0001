@@ -233,9 +233,8 @@ $("showAnswerBtn").addEventListener("click", () => $("answerBox").classList.togg
 $("speakQuestionBtn").addEventListener("click", () => {
   if (currentQuiz) speak(currentQuiz.word.japanese);
 });
-$("speakExampleBtn").addEventListener("click", () => {
-  if (!currentQuiz) return;
-  speak(currentQuiz.example_jp || currentQuiz.word.example_jp);
+$("speakExampleBtn")?.addEventListener("click", () => {
+  if (currentQuiz) speak(currentQuiz.example_jp);
 });
 document.querySelectorAll(".review-btn[data-result]").forEach(btn => btn.addEventListener("click", () => reviewCurrent(btn.dataset.result)));
 $("exportBtn").addEventListener("click", exportJson);

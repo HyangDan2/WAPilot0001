@@ -1,6 +1,6 @@
-# JPPilot0002
+# WAPilot0001
 
-EN ↔ JP JLPT N2 vocabulary trainer.
+Web-app style JLPT N2 Vocabulary trainer.
 
 ## Features
 

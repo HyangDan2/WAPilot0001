@@ -67,3 +67,5 @@ build/
 .env.*
 config.yaml
 secrets.json
+
+*.db

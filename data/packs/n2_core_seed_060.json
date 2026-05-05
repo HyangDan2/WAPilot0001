@@ -1,0 +1,1011 @@
+[
+  {
+    "japanese": "曖昧",
+    "reading": "あいまい",
+    "meaning_en": "vague; ambiguous; unclear",
+    "meaning_ko": "애매함, 모호함",
+    "part_of_speech": "na-adjective / noun",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "abstract",
+      "communication",
+      "n2"
+    ],
+    "example_jp": "彼の説明は曖昧で、よく分からなかった。",
+    "example_en": "His explanation was vague, so I could not understand it well.",
+    "example_ko": "그의 설명은 애매해서 잘 이해할 수 없었다."
+  },
+  {
+    "japanese": "悪化",
+    "reading": "あっか",
+    "meaning_en": "worsening; deterioration",
+    "meaning_ko": "악화",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "health",
+      "situation",
+      "n2"
+    ],
+    "example_jp": "天気が悪化したため、試合は中止になった。",
+    "example_en": "Because the weather worsened, the game was canceled.",
+    "example_ko": "날씨가 악화되어 경기는 취소되었다."
+  },
+  {
+    "japanese": "圧倒的",
+    "reading": "あっとうてき",
+    "meaning_en": "overwhelming; dominant",
+    "meaning_ko": "압도적",
+    "part_of_speech": "na-adjective",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "abstract",
+      "business",
+      "n2"
+    ],
+    "example_jp": "彼は圧倒的な差で優勝した。",
+    "example_en": "He won by an overwhelming margin.",
+    "example_ko": "그는 압도적인 차이로 우승했다."
+  },
+  {
+    "japanese": "扱う",
+    "reading": "あつかう",
+    "meaning_en": "to handle; to deal with; to treat",
+    "meaning_ko": "다루다, 취급하다",
+    "part_of_speech": "verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "work",
+      "action",
+      "n2"
+    ],
+    "example_jp": "この店では輸入品を扱っている。",
+    "example_en": "This store handles imported goods.",
+    "example_ko": "이 가게는 수입품을 취급하고 있다."
+  },
+  {
+    "japanese": "改めて",
+    "reading": "あらためて",
+    "meaning_en": "again; once more; formally",
+    "meaning_ko": "다시, 새삼",
+    "part_of_speech": "adverb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "communication",
+      "n2"
+    ],
+    "example_jp": "詳しい日程は改めてご連絡します。",
+    "example_en": "I will contact you again with the detailed schedule.",
+    "example_ko": "자세한 일정은 다시 연락드리겠습니다."
+  },
+  {
+    "japanese": "案外",
+    "reading": "あんがい",
+    "meaning_en": "unexpectedly; surprisingly",
+    "meaning_ko": "의외로",
+    "part_of_speech": "adverb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "daily",
+      "n2"
+    ],
+    "example_jp": "この問題は案外簡単だった。",
+    "example_en": "This problem was unexpectedly easy.",
+    "example_ko": "이 문제는 의외로 쉬웠다."
+  },
+  {
+    "japanese": "維持",
+    "reading": "いじ",
+    "meaning_en": "maintenance; preservation",
+    "meaning_ko": "유지",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "system",
+      "n2"
+    ],
+    "example_jp": "健康を維持するには運動が必要だ。",
+    "example_en": "Exercise is necessary to maintain health.",
+    "example_ko": "건강을 유지하려면 운동이 필요하다."
+  },
+  {
+    "japanese": "意識",
+    "reading": "いしき",
+    "meaning_en": "consciousness; awareness",
+    "meaning_ko": "의식, 인식",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "mind",
+      "n2"
+    ],
+    "example_jp": "安全を意識して作業してください。",
+    "example_en": "Please work with safety in mind.",
+    "example_ko": "안전을 의식하고 작업해 주세요."
+  },
+  {
+    "japanese": "一応",
+    "reading": "いちおう",
+    "meaning_en": "for now; just in case; roughly",
+    "meaning_ko": "일단, 만일을 위해",
+    "part_of_speech": "adverb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "daily",
+      "conversation",
+      "n2"
+    ],
+    "example_jp": "一応、資料を持って行きます。",
+    "example_en": "I will bring the documents just in case.",
+    "example_ko": "일단 자료를 가지고 가겠습니다."
+  },
+  {
+    "japanese": "一層",
+    "reading": "いっそう",
+    "meaning_en": "even more; further",
+    "meaning_ko": "한층 더",
+    "part_of_speech": "adverb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "formal",
+      "n2"
+    ],
+    "example_jp": "今後は一層努力します。",
+    "example_en": "I will make even greater efforts from now on.",
+    "example_ko": "앞으로는 한층 더 노력하겠습니다."
+  },
+  {
+    "japanese": "移転",
+    "reading": "いてん",
+    "meaning_en": "relocation; transfer",
+    "meaning_ko": "이전",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "place",
+      "n2"
+    ],
+    "example_jp": "会社は来月、新しいビルに移転する。",
+    "example_en": "The company will relocate to a new building next month.",
+    "example_ko": "회사는 다음 달 새 건물로 이전한다."
+  },
+  {
+    "japanese": "引用",
+    "reading": "いんよう",
+    "meaning_en": "quotation; citation",
+    "meaning_ko": "인용",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "academic",
+      "n2"
+    ],
+    "example_jp": "レポートでは出典を明記して引用する必要がある。",
+    "example_en": "In a report, you need to cite sources clearly when quoting.",
+    "example_ko": "리포트에서는 출처를 명시하고 인용해야 한다."
+  },
+  {
+    "japanese": "上回る",
+    "reading": "うわまわる",
+    "meaning_en": "to exceed; to surpass",
+    "meaning_ko": "웃돌다, 초과하다",
+    "part_of_speech": "verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "data",
+      "n2"
+    ],
+    "example_jp": "売上は予想を大きく上回った。",
+    "example_en": "Sales greatly exceeded expectations.",
+    "example_ko": "매출은 예상을 크게 웃돌았다."
+  },
+  {
+    "japanese": "得る",
+    "reading": "える",
+    "meaning_en": "to obtain; to gain",
+    "meaning_ko": "얻다",
+    "part_of_speech": "verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "formal",
+      "action",
+      "n2"
+    ],
+    "example_jp": "経験から多くの知識を得た。",
+    "example_en": "I gained a lot of knowledge from experience.",
+    "example_ko": "경험에서 많은 지식을 얻었다."
+  },
+  {
+    "japanese": "応用",
+    "reading": "おうよう",
+    "meaning_en": "application; practical use",
+    "meaning_ko": "응용",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "technology",
+      "study",
+      "n2"
+    ],
+    "example_jp": "この技術は医療分野にも応用できる。",
+    "example_en": "This technology can also be applied to the medical field.",
+    "example_ko": "이 기술은 의료 분야에도 응용할 수 있다."
+  },
+  {
+    "japanese": "補う",
+    "reading": "おぎなう",
+    "meaning_en": "to supplement; to compensate for",
+    "meaning_ko": "보충하다, 보완하다",
+    "part_of_speech": "verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "work",
+      "n2"
+    ],
+    "example_jp": "不足している知識を本で補った。",
+    "example_en": "I supplemented my lacking knowledge with books.",
+    "example_ko": "부족한 지식을 책으로 보충했다."
+  },
+  {
+    "japanese": "解消",
+    "reading": "かいしょう",
+    "meaning_en": "resolution; elimination",
+    "meaning_ko": "해소",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "problem",
+      "n2"
+    ],
+    "example_jp": "運動はストレス解消に役立つ。",
+    "example_en": "Exercise helps relieve stress.",
+    "example_ko": "운동은 스트레스 해소에 도움이 된다."
+  },
+  {
+    "japanese": "拡大",
+    "reading": "かくだい",
+    "meaning_en": "expansion; enlargement",
+    "meaning_ko": "확대",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "data",
+      "n2"
+    ],
+    "example_jp": "会社は海外事業を拡大している。",
+    "example_en": "The company is expanding its overseas business.",
+    "example_ko": "회사는 해외 사업을 확대하고 있다."
+  },
+  {
+    "japanese": "確保",
+    "reading": "かくほ",
+    "meaning_en": "securing; ensuring",
+    "meaning_ko": "확보",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "十分な時間を確保してください。",
+    "example_en": "Please secure enough time.",
+    "example_ko": "충분한 시간을 확보해 주세요."
+  },
+  {
+    "japanese": "過程",
+    "reading": "かてい",
+    "meaning_en": "process; course",
+    "meaning_ko": "과정",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "formal",
+      "n2"
+    ],
+    "example_jp": "結果だけでなく過程も大切だ。",
+    "example_en": "Not only the result but also the process is important.",
+    "example_ko": "결과뿐만 아니라 과정도 중요하다."
+  },
+  {
+    "japanese": "仮定",
+    "reading": "かてい",
+    "meaning_en": "assumption; supposition",
+    "meaning_ko": "가정",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "logic",
+      "n2"
+    ],
+    "example_jp": "この仮定が正しければ、結論も変わる。",
+    "example_en": "If this assumption is correct, the conclusion will also change.",
+    "example_ko": "이 가정이 맞다면 결론도 바뀐다."
+  },
+  {
+    "japanese": "関連",
+    "reading": "かんれん",
+    "meaning_en": "relation; connection; relevance",
+    "meaning_ko": "관련",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "この問題は環境問題と深く関連している。",
+    "example_en": "This issue is deeply related to environmental problems.",
+    "example_ko": "이 문제는 환경 문제와 깊이 관련되어 있다."
+  },
+  {
+    "japanese": "基準",
+    "reading": "きじゅん",
+    "meaning_en": "standard; criterion",
+    "meaning_ko": "기준",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "quality",
+      "business",
+      "n2"
+    ],
+    "example_jp": "品質基準を満たす必要がある。",
+    "example_en": "It is necessary to meet the quality standards.",
+    "example_ko": "품질 기준을 만족해야 한다."
+  },
+  {
+    "japanese": "強調",
+    "reading": "きょうちょう",
+    "meaning_en": "emphasis; stress",
+    "meaning_ko": "강조",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "communication",
+      "n2"
+    ],
+    "example_jp": "先生は復習の重要性を強調した。",
+    "example_en": "The teacher emphasized the importance of review.",
+    "example_ko": "선생님은 복습의 중요성을 강조했다."
+  },
+  {
+    "japanese": "検討",
+    "reading": "けんとう",
+    "meaning_en": "consideration; examination",
+    "meaning_ko": "검토",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "新しい案を検討しています。",
+    "example_en": "We are considering a new proposal.",
+    "example_ko": "새로운 안을 검토하고 있습니다."
+  },
+  {
+    "japanese": "貢献",
+    "reading": "こうけん",
+    "meaning_en": "contribution",
+    "meaning_ko": "공헌, 기여",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "society",
+      "n2"
+    ],
+    "example_jp": "彼は地域社会に大きく貢献した。",
+    "example_en": "He made a great contribution to the local community.",
+    "example_ko": "그는 지역사회에 크게 기여했다."
+  },
+  {
+    "japanese": "向上",
+    "reading": "こうじょう",
+    "meaning_en": "improvement; advancement",
+    "meaning_ko": "향상",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "quality",
+      "business",
+      "n2"
+    ],
+    "example_jp": "サービスの品質向上を目指している。",
+    "example_en": "We aim to improve the quality of the service.",
+    "example_ko": "서비스 품질 향상을 목표로 하고 있다."
+  },
+  {
+    "japanese": "効率",
+    "reading": "こうりつ",
+    "meaning_en": "efficiency",
+    "meaning_ko": "효율",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "work",
+      "technology",
+      "n2"
+    ],
+    "example_jp": "作業効率を上げる方法を考えた。",
+    "example_en": "I thought about ways to improve work efficiency.",
+    "example_ko": "작업 효율을 높이는 방법을 생각했다."
+  },
+  {
+    "japanese": "克服",
+    "reading": "こくふく",
+    "meaning_en": "overcoming; conquest",
+    "meaning_ko": "극복",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "mind",
+      "n2"
+    ],
+    "example_jp": "彼女は多くの困難を克服した。",
+    "example_en": "She overcame many difficulties.",
+    "example_ko": "그녀는 많은 어려움을 극복했다."
+  },
+  {
+    "japanese": "誤解",
+    "reading": "ごかい",
+    "meaning_en": "misunderstanding",
+    "meaning_ko": "오해",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "communication",
+      "n2"
+    ],
+    "example_jp": "私の説明不足で誤解が生じた。",
+    "example_en": "A misunderstanding occurred because my explanation was insufficient.",
+    "example_ko": "내 설명 부족으로 오해가 생겼다."
+  },
+  {
+    "japanese": "削減",
+    "reading": "さくげん",
+    "meaning_en": "reduction; cutback",
+    "meaning_ko": "삭감, 절감",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "cost",
+      "n2"
+    ],
+    "example_jp": "会社はコスト削減を進めている。",
+    "example_en": "The company is moving forward with cost reduction.",
+    "example_ko": "회사는 비용 절감을 추진하고 있다."
+  },
+  {
+    "japanese": "支給",
+    "reading": "しきゅう",
+    "meaning_en": "provision; payment; supply",
+    "meaning_ko": "지급",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "formal",
+      "n2"
+    ],
+    "example_jp": "社員には交通費が支給される。",
+    "example_en": "Employees are provided with transportation expenses.",
+    "example_ko": "직원에게는 교통비가 지급된다."
+  },
+  {
+    "japanese": "実施",
+    "reading": "じっし",
+    "meaning_en": "implementation; execution",
+    "meaning_ko": "실시",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "来週、アンケートを実施します。",
+    "example_en": "We will conduct a survey next week.",
+    "example_ko": "다음 주 설문조사를 실시합니다."
+  },
+  {
+    "japanese": "従来",
+    "reading": "じゅうらい",
+    "meaning_en": "conventional; existing; traditional",
+    "meaning_ko": "종래, 기존",
+    "part_of_speech": "noun / adverbial",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "formal",
+      "technology",
+      "n2"
+    ],
+    "example_jp": "従来の方法では時間がかかりすぎる。",
+    "example_en": "The conventional method takes too much time.",
+    "example_ko": "기존 방법은 시간이 너무 오래 걸린다."
+  },
+  {
+    "japanese": "柔軟",
+    "reading": "じゅうなん",
+    "meaning_en": "flexible; adaptable",
+    "meaning_ko": "유연함",
+    "part_of_speech": "na-adjective",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "work",
+      "mind",
+      "n2"
+    ],
+    "example_jp": "状況に応じて柔軟に対応する必要がある。",
+    "example_en": "It is necessary to respond flexibly according to the situation.",
+    "example_ko": "상황에 따라 유연하게 대응할 필요가 있다."
+  },
+  {
+    "japanese": "省略",
+    "reading": "しょうりゃく",
+    "meaning_en": "omission; abbreviation",
+    "meaning_ko": "생략",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "language",
+      "n2"
+    ],
+    "example_jp": "時間がないので説明を一部省略します。",
+    "example_en": "Because we do not have time, I will omit part of the explanation.",
+    "example_ko": "시간이 없으므로 설명 일부를 생략하겠습니다."
+  },
+  {
+    "japanese": "推測",
+    "reading": "すいそく",
+    "meaning_en": "guess; inference; speculation",
+    "meaning_ko": "추측",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "logic",
+      "n2"
+    ],
+    "example_jp": "原因をデータから推測した。",
+    "example_en": "I inferred the cause from the data.",
+    "example_ko": "원인을 데이터로부터 추측했다."
+  },
+  {
+    "japanese": "制限",
+    "reading": "せいげん",
+    "meaning_en": "restriction; limitation",
+    "meaning_ko": "제한",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "rule",
+      "n2"
+    ],
+    "example_jp": "このサービスには利用制限がある。",
+    "example_en": "This service has usage restrictions.",
+    "example_ko": "이 서비스에는 이용 제한이 있다."
+  },
+  {
+    "japanese": "責任",
+    "reading": "せきにん",
+    "meaning_en": "responsibility",
+    "meaning_ko": "책임",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "work",
+      "n2"
+    ],
+    "example_jp": "自分の仕事に責任を持つべきだ。",
+    "example_en": "You should take responsibility for your own work.",
+    "example_ko": "자기 일에 책임을 가져야 한다."
+  },
+  {
+    "japanese": "前提",
+    "reading": "ぜんてい",
+    "meaning_en": "premise; assumption; prerequisite",
+    "meaning_ko": "전제",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "logic",
+      "business",
+      "n2"
+    ],
+    "example_jp": "この計画は予算が増えることを前提としている。",
+    "example_en": "This plan is based on the premise that the budget will increase.",
+    "example_ko": "이 계획은 예산이 늘어나는 것을 전제로 한다."
+  },
+  {
+    "japanese": "対応",
+    "reading": "たいおう",
+    "meaning_en": "response; handling; correspondence",
+    "meaning_ko": "대응",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "問題が発生したらすぐに対応してください。",
+    "example_en": "Please respond immediately if a problem occurs.",
+    "example_ko": "문제가 발생하면 즉시 대응해 주세요."
+  },
+  {
+    "japanese": "対象",
+    "reading": "たいしょう",
+    "meaning_en": "target; object; subject",
+    "meaning_ko": "대상",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "formal",
+      "n2"
+    ],
+    "example_jp": "この割引は学生を対象としている。",
+    "example_en": "This discount is intended for students.",
+    "example_ko": "이 할인은 학생을 대상으로 한다."
+  },
+  {
+    "japanese": "達成",
+    "reading": "たっせい",
+    "meaning_en": "achievement; accomplishment",
+    "meaning_ko": "달성",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "goal",
+      "n2"
+    ],
+    "example_jp": "今年の目標を達成した。",
+    "example_en": "I achieved this year's goal.",
+    "example_ko": "올해 목표를 달성했다."
+  },
+  {
+    "japanese": "単純",
+    "reading": "たんじゅん",
+    "meaning_en": "simple; plain; uncomplicated",
+    "meaning_ko": "단순함",
+    "part_of_speech": "na-adjective",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "daily",
+      "n2"
+    ],
+    "example_jp": "問題は見た目ほど単純ではない。",
+    "example_en": "The problem is not as simple as it looks.",
+    "example_ko": "문제는 보기만큼 단순하지 않다."
+  },
+  {
+    "japanese": "調整",
+    "reading": "ちょうせい",
+    "meaning_en": "adjustment; coordination",
+    "meaning_ko": "조정",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "work",
+      "system",
+      "n2"
+    ],
+    "example_jp": "会議の日程を調整しています。",
+    "example_en": "We are adjusting the meeting schedule.",
+    "example_ko": "회의 일정을 조정하고 있습니다."
+  },
+  {
+    "japanese": "提案",
+    "reading": "ていあん",
+    "meaning_en": "proposal; suggestion",
+    "meaning_ko": "제안",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "communication",
+      "n2"
+    ],
+    "example_jp": "新しい改善案を提案した。",
+    "example_en": "I proposed a new improvement plan.",
+    "example_ko": "새로운 개선안을 제안했다."
+  },
+  {
+    "japanese": "適切",
+    "reading": "てきせつ",
+    "meaning_en": "appropriate; suitable",
+    "meaning_ko": "적절함",
+    "part_of_speech": "na-adjective",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "formal",
+      "n2"
+    ],
+    "example_jp": "状況に応じて適切な判断が必要だ。",
+    "example_en": "Appropriate judgment is necessary depending on the situation.",
+    "example_ko": "상황에 따라 적절한 판단이 필요하다."
+  },
+  {
+    "japanese": "導入",
+    "reading": "どうにゅう",
+    "meaning_en": "introduction; implementation",
+    "meaning_ko": "도입",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "technology",
+      "business",
+      "n2"
+    ],
+    "example_jp": "新しいシステムを導入した。",
+    "example_en": "We introduced a new system.",
+    "example_ko": "새로운 시스템을 도입했다."
+  },
+  {
+    "japanese": "把握",
+    "reading": "はあく",
+    "meaning_en": "grasp; understanding",
+    "meaning_ko": "파악",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "logic",
+      "n2"
+    ],
+    "example_jp": "まず現状を正確に把握する必要がある。",
+    "example_en": "First, it is necessary to accurately grasp the current situation.",
+    "example_ko": "먼저 현황을 정확히 파악할 필요가 있다."
+  },
+  {
+    "japanese": "判断",
+    "reading": "はんだん",
+    "meaning_en": "judgment; decision",
+    "meaning_ko": "판단",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "mind",
+      "n2"
+    ],
+    "example_jp": "データを見て判断してください。",
+    "example_en": "Please make a judgment after looking at the data.",
+    "example_ko": "데이터를 보고 판단해 주세요."
+  },
+  {
+    "japanese": "反映",
+    "reading": "はんえい",
+    "meaning_en": "reflection; to reflect",
+    "meaning_ko": "반영",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 4,
+    "tags": [
+      "business",
+      "system",
+      "n2"
+    ],
+    "example_jp": "お客様の意見を製品に反映した。",
+    "example_en": "We reflected customer feedback in the product.",
+    "example_ko": "고객 의견을 제품에 반영했다."
+  },
+  {
+    "japanese": "負担",
+    "reading": "ふたん",
+    "meaning_en": "burden; load; responsibility",
+    "meaning_ko": "부담",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "work",
+      "daily",
+      "n2"
+    ],
+    "example_jp": "この作業は担当者の負担が大きい。",
+    "example_en": "This task places a heavy burden on the person in charge.",
+    "example_ko": "이 작업은 담당자의 부담이 크다."
+  },
+  {
+    "japanese": "分析",
+    "reading": "ぶんせき",
+    "meaning_en": "analysis",
+    "meaning_ko": "분석",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "data",
+      "business",
+      "n2"
+    ],
+    "example_jp": "実験結果を詳しく分析した。",
+    "example_en": "I analyzed the experiment results in detail.",
+    "example_ko": "실험 결과를 자세히 분석했다."
+  },
+  {
+    "japanese": "変更",
+    "reading": "へんこう",
+    "meaning_en": "change; modification",
+    "meaning_ko": "변경",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "仕様を一部変更しました。",
+    "example_en": "We changed part of the specifications.",
+    "example_ko": "사양을 일부 변경했습니다."
+  },
+  {
+    "japanese": "方針",
+    "reading": "ほうしん",
+    "meaning_en": "policy; plan; direction",
+    "meaning_ko": "방침",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "会社の方針に従って進めます。",
+    "example_en": "We will proceed according to the company's policy.",
+    "example_ko": "회사의 방침에 따라 진행하겠습니다."
+  },
+  {
+    "japanese": "見直す",
+    "reading": "みなおす",
+    "meaning_en": "to review; to reconsider",
+    "meaning_ko": "재검토하다, 다시 보다",
+    "part_of_speech": "verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "計画をもう一度見直す必要がある。",
+    "example_en": "We need to review the plan once more.",
+    "example_ko": "계획을 다시 한번 검토할 필요가 있다."
+  },
+  {
+    "japanese": "目標",
+    "reading": "もくひょう",
+    "meaning_en": "goal; target",
+    "meaning_ko": "목표",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "study",
+      "n2"
+    ],
+    "example_jp": "明確な目標を設定することが大切だ。",
+    "example_en": "It is important to set clear goals.",
+    "example_ko": "명확한 목표를 설정하는 것이 중요하다."
+  },
+  {
+    "japanese": "要求",
+    "reading": "ようきゅう",
+    "meaning_en": "request; demand; requirement",
+    "meaning_ko": "요구",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "顧客の要求を正確に理解する。",
+    "example_en": "Understand the customer's requirements accurately.",
+    "example_ko": "고객의 요구를 정확히 이해한다."
+  },
+  {
+    "japanese": "予測",
+    "reading": "よそく",
+    "meaning_en": "forecast; prediction",
+    "meaning_ko": "예측",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 3,
+    "tags": [
+      "data",
+      "business",
+      "n2"
+    ],
+    "example_jp": "来月の売上を予測する。",
+    "example_en": "Predict next month's sales.",
+    "example_ko": "다음 달 매출을 예측한다."
+  },
+  {
+    "japanese": "利益",
+    "reading": "りえき",
+    "meaning_en": "profit; benefit",
+    "meaning_ko": "이익",
+    "part_of_speech": "noun",
+    "jlpt_level": "N2",
+    "difficulty": 2,
+    "tags": [
+      "business",
+      "n2"
+    ],
+    "example_jp": "この改善により大きな利益が得られる。",
+    "example_en": "This improvement will bring significant benefits.",
+    "example_ko": "이 개선으로 큰 이익을 얻을 수 있다."
+  },
+  {
+    "japanese": "理解",
+    "reading": "りかい",
+    "meaning_en": "understanding; comprehension",
+    "meaning_ko": "이해",
+    "part_of_speech": "noun / suru-verb",
+    "jlpt_level": "N2",
+    "difficulty": 1,
+    "tags": [
+      "study",
+      "communication",
+      "n2"
+    ],
+    "example_jp": "相手の立場を理解することが重要だ。",
+    "example_en": "It is important to understand the other person's position.",
+    "example_ko": "상대방의 입장을 이해하는 것이 중요하다."
+  }
+]

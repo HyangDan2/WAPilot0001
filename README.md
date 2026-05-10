@@ -29,22 +29,6 @@ Open:
 http://127.0.0.1:8000
 ```
 
-## Deploy to Render
-
-Use the included `render.yaml` blueprint or create a Render Web Service manually.
-
-Manual Render settings:
-
-```text
-Build Command:
-pip install -r requirements.txt
-
-Start Command:
-uvicorn main:app --host 0.0.0.0 --port $PORT
-```
-
-Note: this app currently uses SQLite. On free/ephemeral hosting, local database files may not persist permanently. For production use, consider moving persistent data to PostgreSQL or another managed database.
-
 ## Import seed pack
 
 Open the web app:
@@ -91,9 +75,9 @@ This repo is prepared for a Vercel FastAPI deployment:
 
 - Vercel entrypoint: `index.py`, which exports the FastAPI app from `main.py`
 - Routing config: `vercel.json`
-- Database: PostgreSQL through the `DATABASE_URL` environment variable
+- Database: PostgreSQL through the `DATABASE_URL` or `POSTGRES_URL` environment variable
 - Admin safety: `/api/reset` requires the `x-admin-token` header matching `ADMIN_TOKEN`
 
 Vercel Postgres is no longer created directly as a first-party database for new projects. Use a Vercel Marketplace Postgres provider such as Neon or Supabase, then connect its `DATABASE_URL` to the Vercel project.
 
-Local development still falls back to `jppilot0002.db` when `DATABASE_URL` is not set.
+Local development still falls back to `jppilot0002.db` when no PostgreSQL URL is set. Vercel deployments require `DATABASE_URL` or `POSTGRES_URL`.

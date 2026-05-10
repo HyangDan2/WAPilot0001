@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: wapilot0001
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: wapilot0001-postgres
+          property: connectionString
+      - key: ADMIN_TOKEN
+        generateValue: true
+
+databases:
+  - name: wapilot0001-postgres
+    databaseName: wapilot0001
+    user: wapilot0001
+    ipAllowList: []

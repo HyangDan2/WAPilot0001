@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import random
-import sqlite3
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
@@ -10,7 +9,7 @@ from typing import Any
 from fastapi import HTTPException
 
 from app.models.schemas import ReviewPayload, WordIn
-from app.services.db import get_conn, init_db
+from app.services.db import INTEGRITY_ERRORS, get_conn, init_db
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 PACK_DIR = BASE_DIR / "data" / "packs"
@@ -34,7 +33,7 @@ def normalize_tags(tags: Any) -> str:
     return ""
 
 
-def row_to_dict(row: sqlite3.Row) -> dict[str, Any]:
+def row_to_dict(row: Any) -> dict[str, Any]:
     d = dict(row)
     d["tags_list"] = [x.strip() for x in d.get("tags", "").split(",") if x.strip()]
     return d
@@ -130,6 +129,7 @@ def add_word(word: WordIn) -> dict[str, Any]:
                     jlpt_level, difficulty, tags, example_jp, example_en,
                     example_ko, note, source, created_at, updated_at
                 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                RETURNING id
                 """,
                 (
                     word.japanese.strip(),
@@ -149,8 +149,9 @@ def add_word(word: WordIn) -> dict[str, Any]:
                     now,
                 ),
             )
-            return {"status": "ok", "id": cur.lastrowid}
-        except sqlite3.IntegrityError as exc:
+            inserted = cur.fetchone()
+            return {"status": "ok", "id": inserted["id"]}
+        except INTEGRITY_ERRORS as exc:
             raise HTTPException(status_code=409, detail="Already exists") from exc
 
 

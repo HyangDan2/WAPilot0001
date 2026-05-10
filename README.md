@@ -19,7 +19,6 @@ Web-app style JLPT N2 Vocabulary trainer.
 ## Run
 
 ```bash
-cd JPPilot0002
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
@@ -69,3 +68,15 @@ Format:
 ## Notes
 
 JLPT does not publish an official vocabulary list. This app uses replaceable custom study packs designed for N2 coverage.
+
+## Render + PostgreSQL
+
+This repo includes `render.yaml` for a Render Blueprint deployment:
+
+- Web service: FastAPI app from `main:app`
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+- Database: Render PostgreSQL connected through `DATABASE_URL`
+- Admin safety: `/api/reset` requires the `x-admin-token` header matching `ADMIN_TOKEN`
+
+Local development still falls back to `jppilot0002.db` when `DATABASE_URL` is not set.

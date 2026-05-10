@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
+from fastapi import FastAPI, Header, HTTPException, Query, Request
+from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -127,6 +128,9 @@ def api_export() -> JSONResponse:
 
 
 @app.post("/api/reset")
-def api_reset() -> dict[str, str]:
+def api_reset(x_admin_token: str = Header(default="")) -> dict[str, str]:
+    admin_token = os.getenv("ADMIN_TOKEN", "")
+    if not admin_token or x_admin_token != admin_token:
+        raise HTTPException(status_code=403, detail="Reset is disabled")
     reset_database()
     return {"status": "ok"}

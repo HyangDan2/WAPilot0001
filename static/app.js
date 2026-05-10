@@ -1,6 +1,9 @@
 let currentQuiz = null;
+let cachedWords = [];
 
 const $ = (id) => document.getElementById(id);
+const REVIEW_KEY = "wapilot0001_reviews_v1";
+const HIDDEN_KEY = "wapilot0001_hidden_words_v1";
 
 function toast(msg) {
   const el = $("toast");
@@ -20,6 +23,75 @@ async function api(url, options = {}) {
     throw new Error(detail);
   }
   return res.json();
+}
+
+function readJson(key, fallback) {
+  try {
+    return JSON.parse(localStorage.getItem(key)) ?? fallback;
+  } catch (_) {
+    return fallback;
+  }
+}
+
+function writeJson(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function wordKey(w) {
+  return `${w.japanese || ""}|${w.reading || ""}`;
+}
+
+function getReviews() {
+  return readJson(REVIEW_KEY, {});
+}
+
+function saveReviews(reviews) {
+  writeJson(REVIEW_KEY, reviews);
+}
+
+function getHiddenWords() {
+  return readJson(HIDDEN_KEY, []);
+}
+
+function saveHiddenWords(keys) {
+  writeJson(HIDDEN_KEY, keys);
+}
+
+function nextReviewDate(result) {
+  const d = new Date();
+  const days = { forgot: 0, hard: 1, good: 3, easy: 7 }[result] ?? 1;
+  d.setDate(d.getDate() + days);
+  return d.toISOString();
+}
+
+function mergeReview(w) {
+  const r = getReviews()[wordKey(w)] || {};
+  return {
+    ...w,
+    review_status: r.status || w.review_status || "new",
+    review_count: r.review_count || 0,
+    correct_count: r.correct_count || 0,
+    wrong_count: r.wrong_count || 0,
+    last_reviewed_at: r.last_reviewed_at || null,
+    next_review_at: r.next_review_at || null,
+  };
+}
+
+function visibleWords(words) {
+  const hidden = new Set(getHiddenWords());
+  return words.map(mergeReview).filter(w => !hidden.has(wordKey(w)));
+}
+
+async function getWords() {
+  if (!cachedWords.length) {
+    cachedWords = await api("/api/words?limit=5000");
+  }
+  return visibleWords(cachedWords);
+}
+
+function isDue(w) {
+  if (!w.next_review_at) return true;
+  return new Date(w.next_review_at).getTime() <= Date.now();
 }
 
 function speak(text) {
@@ -49,15 +121,18 @@ function setView(id) {
 }
 
 async function loadStats() {
-  const s = await api("/api/stats");
-  $("statTotal").textContent = s.total;
-  $("statDue").textContent = s.due;
-  $("statLearned").textContent = s.learned;
-  $("statAccuracy").textContent = `${s.accuracy}%`;
+  const words = await getWords();
+  const reviewed = words.filter(w => w.review_count > 0);
+  const correct = reviewed.reduce((sum, w) => sum + (w.correct_count || 0), 0);
+  const totalReviews = reviewed.reduce((sum, w) => sum + (w.review_count || 0), 0);
+  $("statTotal").textContent = words.length;
+  $("statDue").textContent = words.filter(isDue).length;
+  $("statLearned").textContent = reviewed.length;
+  $("statAccuracy").textContent = `${totalReviews ? Math.round((correct / totalReviews) * 100) : 0}%`;
 }
 
 async function loadDue() {
-  const data = await api("/api/due?limit=24");
+  const data = (await getWords()).filter(isDue).slice(0, 24);
   const el = $("dueList");
   el.innerHTML = data.length ? "" : `<p class="muted">No due words. Import a pack or study more.</p>`;
   data.forEach(w => el.appendChild(wordCard(w)));
@@ -72,23 +147,32 @@ function wordCard(w) {
     <div class="meta">${escapeHtml(w.part_of_speech)} · ${escapeHtml(w.jlpt_level)} · ${escapeHtml(w.review_status)}</div>
     <div class="tags">${(w.tags_list || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
     <div class="actions" style="margin-top:12px">
-      <button class="ghost-btn" onclick="speak('${escapeHtml(w.japanese)}')">🔊</button>
-      <button class="secondary-btn" onclick="startSpecificQuiz(${w.id})">Study</button>
+      <button class="ghost-btn" data-speak="${escapeHtml(w.japanese)}">🔊</button>
+      <button class="secondary-btn" data-study-key="${escapeHtml(wordKey(w))}">Study</button>
     </div>
   `;
+  div.querySelector("[data-speak]").addEventListener("click", e => speak(e.currentTarget.dataset.speak));
+  div.querySelector("[data-study-key]").addEventListener("click", e => startSpecificQuiz(e.currentTarget.dataset.studyKey));
   return div;
 }
 
 async function loadWords() {
-  const params = new URLSearchParams({
-    q: $("searchInput").value,
-    level: $("levelFilter").value,
-    part: $("partFilter").value,
-    tag: $("tagFilter").value,
-    status: $("statusFilter").value,
-    limit: "1000",
-  });
-  const data = await api(`/api/words?${params}`);
+  const q = $("searchInput").value.toLowerCase();
+  const level = $("levelFilter").value;
+  const part = $("partFilter").value.toLowerCase();
+  const tag = $("tagFilter").value.toLowerCase();
+  const status = $("statusFilter").value;
+  let data = await getWords();
+  data = data.filter(w => {
+    const haystack = [w.japanese, w.reading, w.meaning_en, w.meaning_ko, w.example_jp, w.example_en, w.example_ko].join(" ").toLowerCase();
+    const tags = (w.tags_list || []).join(" ").toLowerCase();
+    return (!q || haystack.includes(q)) &&
+      (!level || w.jlpt_level === level) &&
+      (!part || String(w.part_of_speech || "").toLowerCase().includes(part)) &&
+      (!tag || tags.includes(tag)) &&
+      (!status || w.review_status === status);
+  }).slice(0, 1000);
+
   const el = $("wordList");
   el.innerHTML = data.length ? "" : `<p class="muted">No words found.</p>`;
 
@@ -106,28 +190,26 @@ async function loadWords() {
       <div class="actions">
         <button class="ghost-btn" data-speak="${escapeHtml(w.japanese)}">🔊 JP</button>
         <button class="ghost-btn" data-speak="${escapeHtml(w.example_jp || w.japanese)}">🔊 Example</button>
-        <button class="review-btn good" data-review="${w.id}" data-result="good">Good</button>
-        <button class="review-btn danger" data-delete="${w.id}">Delete</button>
+        <button class="review-btn good" data-review-key="${escapeHtml(wordKey(w))}" data-result="good">Good</button>
+        <button class="review-btn danger" data-hide-key="${escapeHtml(wordKey(w))}">Hide</button>
       </div>
     `;
     el.appendChild(div);
   });
 
   el.querySelectorAll("[data-speak]").forEach(btn => btn.addEventListener("click", () => speak(btn.dataset.speak)));
-  el.querySelectorAll("[data-delete]").forEach(btn => btn.addEventListener("click", async () => {
-    if (!confirm("Delete this word?")) return;
-    await api(`/api/words/${btn.dataset.delete}`, { method: "DELETE" });
-    toast("Deleted");
+  el.querySelectorAll("[data-hide-key]").forEach(btn => btn.addEventListener("click", async () => {
+    if (!confirm("Hide this word from this browser?")) return;
+    const hidden = new Set(getHiddenWords());
+    hidden.add(btn.dataset.hideKey);
+    saveHiddenWords([...hidden]);
+    toast("Hidden locally");
     loadWords();
     loadStats();
   }));
-  el.querySelectorAll("[data-review]").forEach(btn => btn.addEventListener("click", async () => {
-    await api(`/api/words/${btn.dataset.review}/review`, {
-      method: "PATCH",
-      headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ result: btn.dataset.result, mode: "manual" })
-    });
-    toast("Review updated");
+  el.querySelectorAll("[data-review-key]").forEach(btn => btn.addEventListener("click", async () => {
+    updateLocalReview(btn.dataset.reviewKey, btn.dataset.result, "manual");
+    toast("Review saved locally");
     loadWords();
     loadStats();
   }));
@@ -140,16 +222,32 @@ function renderCurrentWord(w) {
     <p><b>EN:</b> ${escapeHtml(w.meaning_en)}</p>
     <p><b>KO:</b> ${escapeHtml(w.meaning_ko)}</p>
     <p><b>Part:</b> ${escapeHtml(w.part_of_speech)} / <b>Level:</b> ${escapeHtml(w.jlpt_level)}</p>
+    <p><b>Status:</b> ${escapeHtml(w.review_status)} / <b>Reviews:</b> ${w.review_count}</p>
     <p><b>Example JP:</b><br>${escapeHtml(w.example_jp)}</p>
     <p><b>Example EN:</b><br>${escapeHtml(w.example_en)}</p>
     <div class="tags">${(w.tags_list || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>
   `;
 }
 
+function makeQuiz(w, mode) {
+  const exampleBlank = (w.example_jp || "").replace(w.japanese, "_____");
+  const map = {
+    jp_en: { hint: "Translate Japanese to English", question: w.japanese, answer: w.meaning_en },
+    en_jp: { hint: "Recall Japanese from English", question: w.meaning_en, answer: `${w.japanese} (${w.reading})` },
+    reading: { hint: "Read the kanji", question: w.japanese, answer: w.reading },
+    example: { hint: "Fill the blank in the example", question: exampleBlank || w.meaning_en, answer: w.japanese },
+  };
+  return { ...(map[mode] || map.jp_en), mode, word: w, example_jp: w.example_jp, example_en: w.example_en };
+}
+
 async function newQuiz() {
   const mode = $("quizMode").value;
   const dueOnly = $("dueOnlyQuiz").checked;
-  currentQuiz = await api(`/api/quiz?mode=${encodeURIComponent(mode)}&due_only=${dueOnly}`);
+  let words = await getWords();
+  if (dueOnly) words = words.filter(isDue);
+  if (!words.length) throw new Error("No words available");
+  const w = words[Math.floor(Math.random() * words.length)];
+  currentQuiz = makeQuiz(w, mode);
   $("quizHint").textContent = currentQuiz.hint;
   $("quizQuestion").textContent = currentQuiz.question;
   $("answerBox").classList.add("hidden");
@@ -158,17 +256,45 @@ async function newQuiz() {
   renderCurrentWord(currentQuiz.word);
 }
 
+async function startSpecificQuiz(key) {
+  const words = await getWords();
+  const w = words.find(x => wordKey(x) === key);
+  if (!w) return toast("Word not found");
+  setView("study");
+  currentQuiz = makeQuiz(w, $("quizMode").value);
+  $("quizHint").textContent = currentQuiz.hint;
+  $("quizQuestion").textContent = currentQuiz.question;
+  $("answerBox").classList.add("hidden");
+  $("quizAnswer").textContent = currentQuiz.answer;
+  $("quizExample").innerHTML = `${escapeHtml(currentQuiz.example_jp)}<br>${escapeHtml(currentQuiz.example_en)}`;
+  renderCurrentWord(currentQuiz.word);
+}
+
+function updateLocalReview(key, result, mode) {
+  const reviews = getReviews();
+  const prev = reviews[key] || { review_count: 0, correct_count: 0, wrong_count: 0 };
+  const correct = result === "good" || result === "easy";
+  reviews[key] = {
+    ...prev,
+    status: result,
+    mode,
+    review_count: (prev.review_count || 0) + 1,
+    correct_count: (prev.correct_count || 0) + (correct ? 1 : 0),
+    wrong_count: (prev.wrong_count || 0) + (correct ? 0 : 1),
+    last_reviewed_at: new Date().toISOString(),
+    next_review_at: nextReviewDate(result),
+  };
+  saveReviews(reviews);
+}
+
 async function reviewCurrent(result) {
   if (!currentQuiz) {
     toast("No active quiz");
     return;
   }
-  await api(`/api/words/${currentQuiz.word.id}/review`, {
-    method: "PATCH",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({ result, mode: currentQuiz.mode }),
-  });
-  toast(`Marked: ${result}`);
+  updateLocalReview(wordKey(currentQuiz.word), result, currentQuiz.mode);
+  toast(`Saved locally: ${result}`);
+  cachedWords = cachedWords.map(w => wordKey(w) === wordKey(currentQuiz.word) ? mergeReview(w) : w);
   await loadStats();
   await newQuiz();
 }
@@ -191,17 +317,19 @@ async function loadPacks() {
   });
   el.querySelectorAll("[data-import]").forEach(btn => btn.addEventListener("click", async () => {
     const result = await api(`/api/import/${btn.dataset.import}`, { method: "POST" });
+    cachedWords = [];
     toast(`Imported ${result.imported}, skipped ${result.skipped}`);
     loadStats();
   }));
 }
 
 async function exportJson() {
-  const data = await api("/api/export");
+  const words = await getWords();
+  const data = { words, reviews: getReviews(), hidden_words: getHiddenWords(), exported_at: new Date().toISOString() };
   const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
-  a.download = "jppilot0002_export.json";
+  a.download = "wapilot0001_local_export.json";
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -217,7 +345,8 @@ async function addManual(e) {
     headers: {"Content-Type":"application/json"},
     body: JSON.stringify(payload),
   });
-  toast("Word added");
+  cachedWords = [];
+  toast("Word added to server deck");
   e.target.reset();
   e.target.jlpt_level.value = "N2";
   e.target.difficulty.value = 3;
@@ -245,4 +374,4 @@ $("manualForm").addEventListener("submit", addManual);
   $(id).addEventListener("change", loadWords);
 });
 
-loadStats();
+loadStats().catch(e => toast(e.message));

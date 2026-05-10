@@ -76,8 +76,30 @@ This repo is prepared for a Vercel FastAPI deployment:
 - Vercel entrypoint: `index.py`, which exports the FastAPI app from `main.py`
 - Routing config: `vercel.json`
 - Database: PostgreSQL through the `DATABASE_URL` or `POSTGRES_URL` environment variable
-- Admin safety: `/api/reset` requires the `x-admin-token` header matching `ADMIN_TOKEN`
+- Admin safety: server write APIs require the `x-admin-token` header matching `ADMIN_TOKEN`
 
 Vercel Postgres is no longer created directly as a first-party database for new projects. Use a Vercel Marketplace Postgres provider such as Neon or Supabase, then connect its `DATABASE_URL` to the Vercel project.
 
 Local development still falls back to `jppilot0002.db` when no PostgreSQL URL is set. Vercel deployments require `DATABASE_URL` or `POSTGRES_URL`.
+
+## Data Ownership Model
+
+The deployed database is the canonical server dataset, but public users should not mutate it.
+
+Public users can read study data and keep their learning progress locally in the browser. Review status, hidden words, and study progress are stored in local browser storage.
+
+Server write operations are admin-only:
+
+- `POST /api/words`
+- `DELETE /api/words/{word_id}`
+- `PATCH /api/words/{word_id}/review`
+- `POST /api/import/{pack_name}`
+- `POST /api/reset`
+
+To call an admin endpoint, send:
+
+```text
+x-admin-token: <ADMIN_TOKEN>
+```
+
+Store `ADMIN_TOKEN` only as a Vercel environment variable or in a local ignored `.env` file. Do not commit it to Git.

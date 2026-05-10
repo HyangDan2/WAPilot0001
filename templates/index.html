@@ -23,7 +23,6 @@
         <button class="nav-btn" data-target="study">Study</button>
         <button class="nav-btn" data-target="vocab">Vocabulary</button>
         <button class="nav-btn" data-target="packs">Packs</button>
-        <button class="nav-btn" data-target="manual">Manual Add</button>
       </nav>
 
       <div class="side-note">
@@ -148,35 +147,11 @@
         </div>
 
         <div class="panel">
-          <p class="muted">Put any compatible JSON file into <code>data/packs/</code>. Then click Import.</p>
+          <p class="muted">Available server packs. Admin imports are handled through protected API calls.</p>
           <div id="packList" class="pack-list"></div>
         </div>
       </section>
 
-      <section id="manual" class="view">
-        <div class="topbar">
-          <div>
-            <p class="eyebrow">Create Custom Words</p>
-            <h2>Manual Add</h2>
-          </div>
-        </div>
-
-        <form id="manualForm" class="panel manual-form">
-          <input name="japanese" placeholder="Japanese / Kanji" required />
-          <input name="reading" placeholder="Reading / Kana" />
-          <input name="meaning_en" placeholder="English meaning" required />
-          <input name="meaning_ko" placeholder="Korean note optional" />
-          <input name="part_of_speech" placeholder="noun / verb / adjective..." />
-          <input name="jlpt_level" value="N2" />
-          <input name="difficulty" type="number" min="1" max="5" value="3" />
-          <input name="tags" placeholder="tags comma separated" />
-          <textarea name="example_jp" placeholder="Japanese example"></textarea>
-          <textarea name="example_en" placeholder="English example"></textarea>
-          <textarea name="example_ko" placeholder="Korean example optional"></textarea>
-          <textarea name="note" placeholder="Extra note"></textarea>
-          <button class="primary-btn" type="submit">Add Word</button>
-        </form>
-      </section>
     </main>
   </div>
 

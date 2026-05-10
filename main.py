@@ -35,6 +35,12 @@ app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="stat
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 
+def require_admin(x_admin_token: str) -> None:
+    admin_token = os.getenv("ADMIN_TOKEN", "")
+    if not admin_token or x_admin_token != admin_token:
+        raise HTTPException(status_code=403, detail="Admin token required")
+
+
 @app.on_event("startup")
 def startup() -> None:
     init_db()
@@ -72,18 +78,21 @@ def api_word(word_id: int) -> dict[str, Any]:
 
 
 @app.post("/api/words")
-def api_add_word(word: WordIn) -> dict[str, Any]:
+def api_add_word(word: WordIn, x_admin_token: str = Header(default="")) -> dict[str, Any]:
+    require_admin(x_admin_token)
     return add_word(word)
 
 
 @app.delete("/api/words/{word_id}")
-def api_delete_word(word_id: int) -> dict[str, str]:
+def api_delete_word(word_id: int, x_admin_token: str = Header(default="")) -> dict[str, str]:
+    require_admin(x_admin_token)
     delete_word(word_id)
     return {"status": "ok"}
 
 
 @app.patch("/api/words/{word_id}/review")
-def api_review(word_id: int, payload: ReviewPayload) -> dict[str, Any]:
+def api_review(word_id: int, payload: ReviewPayload, x_admin_token: str = Header(default="")) -> dict[str, Any]:
+    require_admin(x_admin_token)
     return update_review(word_id, payload)
 
 
@@ -106,7 +115,8 @@ def api_packs() -> list[dict[str, Any]]:
 
 
 @app.post("/api/import/{pack_name}")
-def api_import_pack(pack_name: str) -> dict[str, Any]:
+def api_import_pack(pack_name: str, x_admin_token: str = Header(default="")) -> dict[str, Any]:
+    require_admin(x_admin_token)
     pack_path = BASE_DIR / "data" / "packs" / pack_name
     if not pack_path.exists() or pack_path.suffix.lower() != ".json":
         raise HTTPException(status_code=404, detail="Pack not found")
@@ -129,8 +139,6 @@ def api_export() -> JSONResponse:
 
 @app.post("/api/reset")
 def api_reset(x_admin_token: str = Header(default="")) -> dict[str, str]:
-    admin_token = os.getenv("ADMIN_TOKEN", "")
-    if not admin_token or x_admin_token != admin_token:
-        raise HTTPException(status_code=403, detail="Reset is disabled")
+    require_admin(x_admin_token)
     reset_database()
     return {"status": "ok"}

@@ -311,16 +311,10 @@ async function loadPacks() {
         <b>${escapeHtml(p.name)}</b>
         <div class="meta">${p.count} words</div>
       </div>
-      <button class="primary-btn" data-import="${escapeHtml(p.name)}">Import</button>
+      <span class="tag">Server pack</span>
     `;
     el.appendChild(div);
   });
-  el.querySelectorAll("[data-import]").forEach(btn => btn.addEventListener("click", async () => {
-    const result = await api(`/api/import/${btn.dataset.import}`, { method: "POST" });
-    cachedWords = [];
-    toast(`Imported ${result.imported}, skipped ${result.skipped}`);
-    loadStats();
-  }));
 }
 
 async function exportJson() {
@@ -332,25 +326,6 @@ async function exportJson() {
   a.download = "wapilot0001_local_export.json";
   a.click();
   URL.revokeObjectURL(a.href);
-}
-
-async function addManual(e) {
-  e.preventDefault();
-  const fd = new FormData(e.target);
-  const payload = Object.fromEntries(fd.entries());
-  payload.difficulty = Number(payload.difficulty || 3);
-  payload.tags = String(payload.tags || "").split(",").map(x => x.trim()).filter(Boolean);
-  await api("/api/words", {
-    method: "POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify(payload),
-  });
-  cachedWords = [];
-  toast("Word added to server deck");
-  e.target.reset();
-  e.target.jlpt_level.value = "N2";
-  e.target.difficulty.value = 3;
-  loadStats();
 }
 
 document.querySelectorAll(".nav-btn").forEach(btn => btn.addEventListener("click", () => setView(btn.dataset.target)));
@@ -367,7 +342,6 @@ $("speakExampleBtn")?.addEventListener("click", () => {
 });
 document.querySelectorAll(".review-btn[data-result]").forEach(btn => btn.addEventListener("click", () => reviewCurrent(btn.dataset.result)));
 $("exportBtn").addEventListener("click", exportJson);
-$("manualForm").addEventListener("submit", addManual);
 
 ["searchInput", "levelFilter", "partFilter", "tagFilter", "statusFilter"].forEach(id => {
   $(id).addEventListener("keydown", e => { if (e.key === "Enter") loadWords(); });

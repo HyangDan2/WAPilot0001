@@ -29,6 +29,22 @@ Open:
 http://127.0.0.1:8000
 ```
 
+## Deploy to Render
+
+Use the included `render.yaml` blueprint or create a Render Web Service manually.
+
+Manual Render settings:
+
+```text
+Build Command:
+pip install -r requirements.txt
+
+Start Command:
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
+
+Note: this app currently uses SQLite. On free/ephemeral hosting, local database files may not persist permanently. For production use, consider moving persistent data to PostgreSQL or another managed database.
+
 ## Import seed pack
 
 Open the web app:
@@ -60,7 +76,7 @@ Format:
     "tags": ["abstract", "communication", "n2"],
     "example_jp": "彼の説明は曖昧で、よく分からなかった。",
     "example_en": "His explanation was vague, so I could not understand it well.",
-    "example_ko": "그의 설명은 애매해서 잘 이해할 수 없었다."
+    "example_ko": "그의 설명은 애매해서 잘 이해할 수 없었다。"
   }
 ]
 ```

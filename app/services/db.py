@@ -20,7 +20,19 @@ INTEGRITY_ERRORS = (
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 DB_PATH = BASE_DIR / "jppilot0002.db"
-DATABASE_URL = os.getenv("DATABASE_URL") or os.getenv("POSTGRES_URL") or ""
+DATABASE_URL = (
+    os.getenv("DATABASE_URL")
+    or os.getenv("POSTGRES_URL")
+    or os.getenv("POSTGRES_URL_NON_POOLING")
+    or os.getenv("POSTGRES_PRISMA_URL")
+    or ""
+)
+DB_URL_ENV_NAMES = (
+    "DATABASE_URL",
+    "POSTGRES_URL",
+    "POSTGRES_URL_NON_POOLING",
+    "POSTGRES_PRISMA_URL",
+)
 
 
 class AppConnection:
@@ -75,11 +87,15 @@ def use_postgres() -> bool:
 def get_conn() -> AppConnection:
     if use_postgres():
         if psycopg is None or dict_row is None:
-            raise RuntimeError("DATABASE_URL is set, but psycopg is not installed.")
+            raise RuntimeError("A PostgreSQL URL is set, but psycopg is not installed.")
         return AppConnection(psycopg.connect(DATABASE_URL, row_factory=dict_row), "postgres")
 
     if os.getenv("VERCEL"):
-        raise RuntimeError("Vercel deployment requires DATABASE_URL or POSTGRES_URL for PostgreSQL.")
+        available = ", ".join(name for name in DB_URL_ENV_NAMES if os.getenv(name)) or "none"
+        raise RuntimeError(
+            "Vercel deployment requires a PostgreSQL URL. "
+            f"Checked {', '.join(DB_URL_ENV_NAMES)}; available: {available}."
+        )
 
     conn = sqlite3.connect(str(DB_PATH))
     conn.row_factory = sqlite3.Row

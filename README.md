@@ -69,14 +69,15 @@ Format:
 
 JLPT does not publish an official vocabulary list. This app uses replaceable custom study packs designed for N2 coverage.
 
-## Render + PostgreSQL
+## Vercel + PostgreSQL
 
-This repo includes `render.yaml` for a Render Blueprint deployment:
+This repo is prepared for a Vercel FastAPI deployment:
 
-- Web service: FastAPI app from `main:app`
-- Build command: `pip install -r requirements.txt`
-- Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-- Database: Render PostgreSQL connected through `DATABASE_URL`
+- Vercel entrypoint: `app.py`, which exports the FastAPI app from `main.py`
+- Routing config: `vercel.json`
+- Database: PostgreSQL through the `DATABASE_URL` environment variable
 - Admin safety: `/api/reset` requires the `x-admin-token` header matching `ADMIN_TOKEN`
+
+Vercel Postgres is no longer created directly as a first-party database for new projects. Use a Vercel Marketplace Postgres provider such as Neon or Supabase, then connect its `DATABASE_URL` to the Vercel project.
 
 Local development still falls back to `jppilot0002.db` when `DATABASE_URL` is not set.

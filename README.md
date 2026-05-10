@@ -73,7 +73,7 @@ JLPT does not publish an official vocabulary list. This app uses replaceable cus
 
 This repo is prepared for a Vercel FastAPI deployment:
 
-- Vercel entrypoint: `app.py`, which exports the FastAPI app from `main.py`
+- Vercel entrypoint: `index.py`, which exports the FastAPI app from `main.py`
 - Routing config: `vercel.json`
 - Database: PostgreSQL through the `DATABASE_URL` environment variable
 - Admin safety: `/api/reset` requires the `x-admin-token` header matching `ADMIN_TOKEN`

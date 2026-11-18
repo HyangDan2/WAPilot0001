@@ -82,6 +82,15 @@ Format:
 ]
 ```
 
+## API
+
+The HTTP API served by `main.py` is specified in **[docs/API.md](docs/API.md)**:
+
+- 12 endpoints — stats, words (list/get/add/delete/review), due, quiz, packs, import, export, reset
+- No authentication; `POST /api/reset` deletes every word and study log, so do not expose this app publicly without a front gate
+- Data lives in `jppilot0002.db` (SQLite, repo root) and `data/packs/*.json`; there are no environment variables
+- `app.py` is the older `JPPilot0001` entry point with a different schema and a separate `vocab.db`; deploy only `main:app`
+
 ## Notes
 
 JLPT does not publish an official vocabulary list. This app uses replaceable custom study packs designed for N2 coverage.
